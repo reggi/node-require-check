@@ -1,8 +1,7 @@
 # `require-check`
-[![semantic
-release](https://github.com/reggi/node-require-check/workflows/semantic%20release/badge.svg)](https://github.com/reggi/node-require-check/actions?query=workflow%3A%22semantic+release%22)
 
-[![coverage](https://github.com/reggi/node-require-check/workflows/coverage/badge.svg)](https://reggi.github.io/node-require-check/)
+[![semantic
+release](https://github.com/reggi/node-require-check/workflows/semantic%20release/badge.svg)](https://github.com/reggi/node-require-check/actions?query=workflow%3A%22semantic+release%22) [![coverage](https://github.com/reggi/node-require-check/workflows/coverage/badge.svg)](https://reggi.github.io/node-require-check/)
 
 Checks that a given module is able to be required without any errors occurring.
 
