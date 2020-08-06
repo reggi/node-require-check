@@ -30,7 +30,7 @@ jobs:
         node-version: 14.x
     - run: npm ci
     - run: npm run test:coverage-ci
-  lint/shebang/require: 
+  lint-shebang-require: 
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
