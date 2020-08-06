@@ -10,6 +10,17 @@ import * as util from 'util';
  * the temp directory using node, ensures that package is can be required
  * reliably, dependencies are listed in npm, and transpilation has occurred. */
 export class RequireCheck {
+  static async rmdir(location: string) {
+    const entries = await fs.promises.readdir(location, {withFileTypes: true});
+    const promises = entries.map(entry => {
+      const fullLocation = path.join(location, entry.name);
+      return entry.isDirectory()
+        ? RequireCheck.rmdir(fullLocation)
+        : fs.promises.unlink(fullLocation);
+    });
+    await Promise.all(promises);
+    await fs.promises.rmdir(location);
+  }
   static exec = util.promisify(childProcess.exec);
   static template = {
     name: 'require-check-template',
@@ -46,7 +57,7 @@ export class RequireCheck {
     const pkg = JSON.parse(pkgRaw);
     await RequireCheck.npmInstall(modLocation, destLocation);
     await RequireCheck.requireModule(pkg, destLocation);
-    await fs.promises.rmdir(destLocation, {recursive: true});
+    await RequireCheck.rmdir(destLocation);
   }
   static async cli(process: NodeJS.Process) {
     const modLocation = process.argv.slice(2)[0];
