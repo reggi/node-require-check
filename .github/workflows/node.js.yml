@@ -30,7 +30,7 @@ jobs:
         node-version: 14.x
     - run: npm ci
     - run: npm run test:coverage-ci
-  lint-shebang-require: 
+  checks: 
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -44,7 +44,7 @@ jobs:
     - run: npm run shebang-check
     - run: npm run require-check
   publish-npm:
-    needs: [test, coverage, lint]
+    needs: [test, coverage, checks]
     runs-on: ubuntu-latest
     steps:  
     - name: Checkout
