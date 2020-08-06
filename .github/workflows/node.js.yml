@@ -40,6 +40,8 @@ jobs:
         node-version: 14.x
     - run: npm ci
     - run: npm run lint:check
+    - run: npm run shebang-check
+    - run: npm run require-check
   publish-npm:
     needs: [test, coverage, lint]
     runs-on: ubuntu-latest
