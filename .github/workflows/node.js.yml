@@ -21,7 +21,6 @@ jobs:
     - run: npm ci
     - run: npm test
   coverage: 
-    needs: [test]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -31,8 +30,18 @@ jobs:
         node-version: 14.x
     - run: npm ci
     - run: npm run test:coverage-ci
+  lint: 
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js 14.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14.x
+    - run: npm ci
+    - run: npm lint:check
   publish-npm:
-    needs: [test, coverage]
+    needs: [test, coverage, lint]
     runs-on: ubuntu-latest
     steps:  
     - name: Checkout
