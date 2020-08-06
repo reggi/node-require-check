@@ -40,6 +40,7 @@ jobs:
         node-version: 14.x
     - run: npm ci
     - run: npm run lint:check
+    - run: npm run build
     - run: npm run shebang-check
     - run: npm run require-check
   publish-npm:
