@@ -1,5 +1,7 @@
 # `require-check`
 
+[![Coverage Status](https://github.com/reggi/node-require-check/workflows/coverage/badge.svg)](https://reggi.github.io/node-require-check/)
+
 Checks that a given module is able to be required without any errors occurring.
 
 When run as a CLI tool a directory is passed.
