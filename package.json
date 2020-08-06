@@ -1,6 +1,6 @@
 {
   "name": "require-check",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Checks that a given module is able to be required without any errors occurring.",
   "repository": {
     "type": "git",
