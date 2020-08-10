@@ -1,8 +1,3 @@
 {
-  "deno.enable": false,
-  "cSpell.words": [
-    "posttest",
-    "sortme",
-    "xargs"
-  ]
+  "deno.enable": false
 }

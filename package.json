@@ -16,25 +16,28 @@
     "lint:check": "gts check",
     "lint:fix": "gts fix",
     "open:coverage": "npm run coverage:open",
+    "require-check": "require-check ./",
+    "shebang-check": "shebang-check ./package.json",
     "sortme": "npx sort-package-json",
     "test": "mocha -t 4000 -r ts-node/register \"src/**/*_test.ts\"",
-    "test:coverage-html": "nyc --reporter=html npm test",
+    "test:coverage": "npm run test:coverage-html && npm run open:coverage",
     "test:coverage-ci": "nyc npm test",
-    "ts-node": "ts-node",
-    "shebang-check": "shebang-check ./package.json",
-    "require-check": "ts-node ./src/require_check_cli.ts ./"
+    "test:coverage-html": "nyc --reporter=html npm test",
+    "ts-node": "ts-node"
   },
   "devDependencies": {
     "@types/chai": "^4.2.12",
+    "@types/chai-jest-snapshot": "^1.3.6",
     "@types/mocha": "^8.0.1",
-    "@types/mock-fs": "^4.10.0",
     "@types/node": "^14.0.22",
     "@types/sinon": "^9.0.4",
     "chai": "^4.2.0",
+    "chai-jest-snapshot": "^2.0.0",
     "eslint": "^6.0.0",
     "gts": "^2.0.2",
     "mocha": "^8.1.1",
     "nyc": "^15.1.0",
+    "require-check": "^1.0.2",
     "shebang-check": "^1.0.5",
     "sinon": "^9.0.2",
     "ts-node": "^8.10.2",
@@ -42,5 +45,6 @@
   },
   "engines": {
     "node": ">=11.14.0"
-  }
+  },
+  "usage": "CMD <project-directory>"
 }
